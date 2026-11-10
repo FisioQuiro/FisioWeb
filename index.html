@@ -489,6 +489,14 @@ footer a:hover{color:#fff}
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.900v3a2 2 0 0 1-2.200 2 19.800 19.800 0 0 1-8.600-3.100 19.500 19.500 0 0 1-6-6A19.800 19.800 0 0 1 2.100 4.200 2 2 0 0 1 4.100 2h3a2 2 0 0 1 2 1.700c.1 1 .4 1.900.7 2.800a2 2 0 0 1-.5 2.100L8.100 9.900a16 16 0 0 0 6 6l1.300-1.300a2 2 0 0 1 2.100-.4c.9.300 1.800.6 2.800.7a2 2 0 0 1 1.700 2z"/></svg></span>
           <span>Llamar ahora<small>Atención con cita previa</small></span>
         </a>
+        <a id="igContact" hidden target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.500" cy="6.500" r="1" fill="currentColor"/></svg></span>
+          <span>Instagram<small>@ftrodrigosolares</small></span>
+        </a>
+        <a id="fbContact" hidden target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+          <span>Facebook<small>Rodrigo Solares Fisioterapia</small></span>
+        </a>
         <div id="hoursRow" hidden>
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
           <span><span data-cfg="horario"></span><small>Horario de atención</small></span>
@@ -655,8 +663,8 @@ const CONFIG = {
   direccion: "",                   // Ej: "6a avenida 10-20, zona 10, Ciudad de Guatemala"
   horario: "",                     // Ej: "Lunes a viernes 8:00 – 18:00"
   mapaEmbed: "",                   // URL del iframe de Google Maps (Compartir > Insertar un mapa > copiar el src)
-  instagram: "",                   // Ej: "https://instagram.com/usuario"
-  facebook: ""                     // Ej: "https://facebook.com/pagina"
+  instagram: "https://www.instagram.com/ftrodrigosolares",
+  facebook: "https://www.facebook.com/share/1ChMUFYvpT/"
 };
 
 (function(){
@@ -686,6 +694,8 @@ const CONFIG = {
     box.innerHTML = '<iframe src="'+CONFIG.mapaEmbed+'" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa del consultorio" allowfullscreen></iframe>';
   }
   // Redes
+  if(CONFIG.instagram){ const c=document.getElementById("igContact"); c.href=CONFIG.instagram; c.hidden=false; }
+  if(CONFIG.facebook){ const c=document.getElementById("fbContact"); c.href=CONFIG.facebook; c.hidden=false; }
   if(CONFIG.instagram){ const l=document.getElementById("igLink"); l.href=CONFIG.instagram; document.getElementById("igItem").hidden=false; }
   if(CONFIG.facebook){ const l=document.getElementById("fbLink"); l.href=CONFIG.facebook; document.getElementById("fbItem").hidden=false; }
 
